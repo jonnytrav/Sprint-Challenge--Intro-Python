@@ -38,3 +38,23 @@ class GroundVehicle(Vehicle):
 class Motorcycle(GroundVehicle):
     def __init__(self, name):
         super.__init__(self, name)
+
+
+class Car(GroundVehicle):
+    def __init__(self, name):
+        super.__init__(self, name)
+
+
+class FlightVehicle(Vehicle):
+    def __init__(self, name):
+        super.__init__(self, name)
+
+
+class Airplane(FlightVehicle):
+    def __init__(self, name):
+        super.__init__(self, name)
+
+
+class Starship(FlightVehicle):
+    def __init__(self, name):
+        super.__init__(self, name)
