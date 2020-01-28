@@ -28,13 +28,13 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [person for person in humans if person.name[0] == "D"]
+a = [person.name for person in humans if person.name[0] == "D"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [person for person in humans if person.name[-1] == "e"]
+b = [person.name for person in humans if person.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
@@ -43,7 +43,7 @@ print("Starts between C and G, inclusive:")
 first_letters = ["C", "D", "E", "F", "G"]
 
 
-c = [person for person in humans if person.name[0] in first_letters]
+c = [person.name for person in humans if person.name[0] in first_letters]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -61,7 +61,8 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [person for person in humans if person.age in range(27, 32)]
+f = [(person.name, person.age)
+     for person in humans if person.age in range(27, 33)]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -70,13 +71,13 @@ print(f)
 print("All names uppercase:")
 
 
-def modify(person):
-    person.age += 5
-    person.name = person.name.upper()
-    return person
+# def modify(person):
+#     person.age += 5
+#     person.name = person.name.upper()
+#     return person
 
 
-g = [modify(person) for person in humans]
+g = [Human(person.name.upper(), person.age + 5) for person in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
